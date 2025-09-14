@@ -6,12 +6,15 @@ const int SIZE = 5;
 
 void enterArrayData(double *ptr);
 void outputArrayData(double *ptr);
+double sumArray(double *ptr);
 
 int main()
 {
     double *arr = new double[SIZE];
     enterArrayData(arr);
     outputArrayData(arr);
+    
+    cout << "Sum of values: " << sumArray(arr) << endl;
 
     delete [] arr;
 
@@ -39,4 +42,18 @@ void outputArrayData(double *ptr)
     {
         cout << " " << *(ptr + i);
     }
+    
+    cout << endl;
+}
+
+double sumArray(double *ptr)
+{
+    double sum = 0.0;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        sum += *(ptr + i);
+    }
+
+    return sum;
 }
